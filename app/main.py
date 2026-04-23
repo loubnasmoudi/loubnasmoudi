@@ -14,7 +14,6 @@ from .engine import (
     run_scenario_reaction,
 )
 from .schemas import (
-    ConversationMessage,
     ConversationTurnCreate,
     PersonaCreate,
     PersonaResponse,

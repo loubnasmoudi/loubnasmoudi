@@ -1,0 +1,1 @@
+"""Empathy Simulator application package."""

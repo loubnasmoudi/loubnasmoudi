@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empathy Simulator MVP</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Empathy Simulator MVP</h1>
+      <p class="subhead">Talk to your audience before you talk to your audience.</p>
+      <p class="small muted">Reminder: this is a simulated perspective, not validated research.</p>
+    </header>
+
+    <main>
+      <section class="panel-grid">
+        <article class="panel">
+          <h2>Persona Builder</h2>
+          <p class="small muted">Describe brand and audience, generate a psychographic profile, then save it.</p>
+
+          <label for="personaName">Persona name</label>
+          <input id="personaName" placeholder="The Practical Skeptic" />
+
+          <label for="brandDescription">Brand or product description</label>
+          <textarea id="brandDescription" placeholder="What is the offer and positioning?"></textarea>
+
+          <label for="audienceDescription">Audience description</label>
+          <textarea id="audienceDescription" placeholder="Who are they, what tensions/motivations shape them?"></textarea>
+
+          <div class="btn-row">
+            <button id="generateProfileBtn">Generate profile</button>
+            <button id="savePersonaBtn" class="secondary">Save persona</button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Saved Personas</h2>
+          <label for="personaSelect">Load persona</label>
+          <select id="personaSelect">
+            <option value="">Select a saved persona</option>
+          </select>
+          <div class="btn-row">
+            <button id="loadPersonaBtn" class="secondary">Load selected</button>
+            <button id="startSessionBtn">Start new session</button>
+          </div>
+
+          <details open>
+            <summary>Profile JSON</summary>
+            <pre id="profileJson" class="profile-pre">{}</pre>
+          </details>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Conversation Mode</h2>
+        <div class="chat-layout">
+          <div>
+            <h3>Persona context</h3>
+            <div id="profileSummary" class="context-box">Load or generate a persona.</div>
+          </div>
+          <div>
+            <div id="chatWindow" class="chat-box"></div>
+            <div class="chat-input-grid">
+              <textarea id="chatInput" placeholder="Ask the persona a question..."></textarea>
+              <textarea id="copyZone" placeholder="Paste copy for feedback (ad, landing page, email)..."></textarea>
+              <button id="chatSendBtn">Send</button>
+            </div>
+            <div class="btn-row">
+              <button id="copySendBtn" class="secondary">Ask about pasted copy</button>
+              <button id="generateSummaryBtn" class="secondary">Generate summary</button>
+              <button id="exportTranscriptBtn" class="secondary">Export transcript (.md)</button>
+            </div>
+            <div id="summaryOutput" class="small"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Scenario Runner</h2>
+        <label for="scenarioTitle">Scenario title</label>
+        <input id="scenarioTitle" placeholder="Pricing page first impression" />
+        <label for="scenarioContext">Scenario context</label>
+        <textarea id="scenarioContext" placeholder="You just saw this Instagram ad for the first time..."></textarea>
+        <label for="scenarioArtifact">Stimulus (optional)</label>
+        <textarea id="scenarioArtifact" placeholder="Paste ad copy / pricing text / email draft"></textarea>
+        <div class="btn-row">
+          <button id="scenarioRunBtn">Run scenario</button>
+        </div>
+        <div id="scenarioOutput" class="small"></div>
+      </section>
+    </main>
+
+    <footer class="small muted">
+      Validate decisions with real humans before launch.
+    </footer>
+    <div id="status" class="status small muted"></div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
